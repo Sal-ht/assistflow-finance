@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { useState } from "react";
+import SignInDialog from "./SignInDialog";
+import GetStartedDialog from "./GetStartedDialog";
 
 interface HeaderProps {
   onChatOpen: () => void;
@@ -22,16 +24,44 @@ const Header = ({ onChatOpen }: HeaderProps) => {
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">
+            <a 
+              href="#services" 
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Services
             </a>
-            <a href="#features" className="text-foreground hover:text-primary transition-colors">
+            <a 
+              href="#features" 
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Features
             </a>
-            <a href="#security" className="text-foreground hover:text-primary transition-colors">
+            <a 
+              href="#features" 
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Security
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+            <a 
+              href="#contact" 
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Contact
             </a>
           </nav>
@@ -46,8 +76,12 @@ const Header = ({ onChatOpen }: HeaderProps) => {
               <MessageCircle size={18} />
               AI Assistant
             </Button>
-            <Button variant="outline">Sign In</Button>
-            <Button variant="hero">Get Started</Button>
+            <SignInDialog>
+              <Button variant="outline">Sign In</Button>
+            </SignInDialog>
+            <GetStartedDialog>
+              <Button variant="hero">Get Started</Button>
+            </GetStartedDialog>
           </div>
 
           {/* Mobile menu button */}
@@ -75,35 +109,55 @@ const Header = ({ onChatOpen }: HeaderProps) => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a
                 href="#services"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Services
               </a>
               <a
                 href="#features"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Features
               </a>
               <a
-                href="#security"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                href="#features"
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Security
               </a>
               <a
                 href="#contact"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Contact
               </a>
               <div className="flex flex-col space-y-2 px-3 pt-4">
-                <Button variant="outline" className="w-full">Sign In</Button>
-                <Button variant="hero" className="w-full">Get Started</Button>
+                <SignInDialog>
+                  <Button variant="outline" className="w-full">Sign In</Button>
+                </SignInDialog>
+                <GetStartedDialog>
+                  <Button variant="hero" className="w-full">Get Started</Button>
+                </GetStartedDialog>
               </div>
             </div>
           </div>

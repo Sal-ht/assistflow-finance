@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, TrendingUp, Shield, Zap } from "lucide-react";
+import DemoDialog from "./DemoDialog";
 
 interface HeroProps {
   onChatOpen: () => void;
@@ -49,9 +50,11 @@ const Hero = ({ onChatOpen }: HeroProps) => {
               Talk to AI Assistant
               <ArrowRight size={20} />
             </Button>
-            <Button variant="outline" size="xl">
-              Watch Demo
-            </Button>
+            <DemoDialog>
+              <Button variant="outline" size="xl">
+                Watch Demo
+              </Button>
+            </DemoDialog>
           </div>
 
           {/* Trust indicators */}
