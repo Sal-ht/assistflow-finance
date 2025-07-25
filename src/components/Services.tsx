@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { 
   BarChart3, 
   PieChart, 
@@ -19,42 +20,48 @@ const Services = () => {
       title: "AI Financial Analysis",
       description: "Advanced AI algorithms analyze your financial data to provide personalized insights and recommendations.",
       features: ["Real-time analysis", "Predictive modeling", "Risk assessment"],
-      color: "text-primary"
+      color: "text-primary",
+      link: "/services/ai-analysis"
     },
     {
       icon: BarChart3,
       title: "Smart Reporting",
       description: "Automated financial reports generated with AI-powered data interpretation and visualization.",
       features: ["Automated reports", "Custom dashboards", "Export options"],
-      color: "text-secondary"
+      color: "text-secondary",
+      link: "/services/smart-reporting"
     },
     {
       icon: TrendingUp,
       title: "Investment Advisory",
       description: "AI-driven investment recommendations based on market analysis and your financial goals.",
       features: ["Portfolio optimization", "Market insights", "Risk management"],
-      color: "text-success"
+      color: "text-success",
+      link: "/services/investment-advisory"
     },
     {
       icon: Calculator,
       title: "Expense Tracking",
       description: "Intelligent categorization and tracking of expenses with AI-powered spending insights.",
       features: ["Smart categorization", "Spending alerts", "Budget optimization"],
-      color: "text-primary"
+      color: "text-primary",
+      link: "/services/expense-tracking"
     },
     {
       icon: Shield,
       title: "Fraud Detection",
       description: "Advanced AI security monitoring to detect and prevent fraudulent activities.",
       features: ["Real-time monitoring", "Anomaly detection", "Instant alerts"],
-      color: "text-destructive"
+      color: "text-destructive",
+      link: "/services/fraud-detection"
     },
     {
       icon: Smartphone,
       title: "Mobile Integration",
       description: "Seamless mobile experience with AI assistant available wherever you are.",
       features: ["Mobile apps", "Voice commands", "Offline access"],
-      color: "text-secondary"
+      color: "text-secondary",
+      link: "/services/mobile-integration"
     }
   ];
 
@@ -103,9 +110,11 @@ const Services = () => {
                 ))}
               </ul>
 
-              <Button variant="ghost" className="group/button w-full justify-between">
-                Learn More
-                <ArrowRight size={16} className="group-hover/button:translate-x-1 transition-transform" />
+              <Button variant="ghost" className="group/button w-full justify-between" asChild>
+                <Link to={service.link}>
+                  Learn More
+                  <ArrowRight size={16} className="group-hover/button:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </Card>
           ))}
